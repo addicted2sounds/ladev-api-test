@@ -2,34 +2,36 @@
 
 LA Developers test API application
 
+Create user first. Then use token to use products api. See below:
+
 --Users
 Get users list:
-curl http://localhost:3000/users.json
+curl http://http://ladev-api-test.herokuapp.com/users.json
 
 Show user details
-curl http://localhost:3000/users/{id}.json
+curl http://http://ladev-api-test.herokuapp.com/users/{id}.json
 
 Create user
-curl -XPOST -H 'Content-type: application/json' -d '{"user": {"username":"test", "password":"test"}}' http://localhost:3000/users.json
+curl -XPOST -H 'Content-type: application/json' -d '{"user": {"username":"test", "password":"test"}}' http://http://ladev-api-test.herokuapp.com/users.json
 
 Update user name
-curl -XPATCH -H 'Content-type: application/json' -d '{"user": {"username":"new"}}' http://localhost:3000/users/{id}.json
+curl -XPATCH -H 'Content-type: application/json' -d '{"user": {"username":"new"}}' http://http://ladev-api-test.herokuapp.com/users/{id}.json
 
 Delete user
-curl -XDELETE http://localhost:3000/users/{id}.json
+curl -XDELETE http://http://ladev-api-test.herokuapp.com/users/{id}.json
 
 --Products
 Get products list:
-curl -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' http://localhost:3000/products.json
+curl -H 'Authorization: Token token="{token}"' http://http://ladev-api-test.herokuapp.com/products.json
 
 Show product details
-curl -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' http://localhost:3000/products/{id}.json
+curl -H 'Authorization: Token token="{token}"' http://http://ladev-api-test.herokuapp.com/products/{id}.json
 
 Create product
-curl -XPOST  -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' -H 'Content-type: application/json' -d '{"product": {"name":"test", "price":"9"}}' http://localhost:3000/products.json
+curl -XPOST  -H 'Authorization: Token token="{token}"' -H 'Content-type: application/json' -d '{"product": {"name":"test", "price":"9"}}' http://http://ladev-api-test.herokuapp.com/products.json
 
 Update product
-curl -XPATCH  -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' -H 'Content-type: application/json' -d '{"product": {"description":"test"}}' http://localhost:3000/products/{id}.json
+curl -XPATCH  -H 'Authorization: Token token="{token}"' -H 'Content-type: application/json' -d '{"product": {"description":"test"}}' http://http://ladev-api-test.herokuapp.com/products/{id}.json
 
 Delete product
-curl -XDELETE  -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' http://localhost:3000/products/{id}.json
+curl -XDELETE  -H 'Authorization: Token token="{token}"' http://http://ladev-api-test.herokuapp.com/products/{id}.json
