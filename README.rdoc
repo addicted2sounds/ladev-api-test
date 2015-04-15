@@ -7,10 +7,16 @@ Get users list:
 curl http://localhost:3000/users.json
 
 show user details
-curl http://localhost:3000/users/2.json
+curl http://localhost:3000/users/1.json
 
 create user
 curl -XPOST -H 'Content-type: application/json' -d '{"user": {"username":"test", "password":"test"}}' http://localhost:3000/users.json
+
+update user name
+curl -XPATCH -H 'Content-type: application/json' -d '{"user": {"username":"newname"}}' http://localhost:3000/users/1.json
+
+delete user
+curl -XDELETE http://localhost:3000/users/1.json
 
 --Products
 curl http://localhost:3000/products.json
