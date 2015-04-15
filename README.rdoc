@@ -4,7 +4,7 @@ LA Developers test API application
 
 Create user first. Then use token to use products api. See below:
 
---Users
+--Users (username is required)
 Get users list:
 curl http://http://ladev-api-test.herokuapp.com/users.json
 
@@ -20,7 +20,7 @@ curl -XPATCH -H 'Content-type: application/json' -d '{"user": {"username":"new"}
 Delete user
 curl -XDELETE http://http://ladev-api-test.herokuapp.com/users/{id}.json
 
---Products
+--Products(name is require)
 Get products list:
 curl -H 'Authorization: Token token="{token}"' http://http://ladev-api-test.herokuapp.com/products.json
 
