@@ -6,17 +6,30 @@ LA Developers test API application
 Get users list:
 curl http://localhost:3000/users.json
 
-show user details
-curl http://localhost:3000/users/1.json
+Show user details
+curl http://localhost:3000/users/{id}.json
 
-create user
+Create user
 curl -XPOST -H 'Content-type: application/json' -d '{"user": {"username":"test", "password":"test"}}' http://localhost:3000/users.json
 
-update user name
-curl -XPATCH -H 'Content-type: application/json' -d '{"user": {"username":"newname"}}' http://localhost:3000/users/1.json
+Update user name
+curl -XPATCH -H 'Content-type: application/json' -d '{"user": {"username":"new"}}' http://localhost:3000/users/{id}.json
 
-delete user
-curl -XDELETE http://localhost:3000/users/1.json
+Delete user
+curl -XDELETE http://localhost:3000/users/{id}.json
 
 --Products
-curl http://localhost:3000/products.json
+Get products list:
+curl -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' http://localhost:3000/products.json
+
+Show product details
+curl -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' http://localhost:3000/products/{id}.json
+
+Create product
+curl -XPOST  -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' -H 'Content-type: application/json' -d '{"product": {"name":"test", "price":"9"}}' http://localhost:3000/products.json
+
+Update product
+curl -XPATCH  -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' -H 'Content-type: application/json' -d '{"product": {"description":"test"}}' http://localhost:3000/products/{id}.json
+
+Delete product
+curl -XDELETE  -H 'Authorization: Token token="758757b61f7cbd99e31bb662f3a9fb03"' http://localhost:3000/products/{id}.json

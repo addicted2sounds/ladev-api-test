@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  protect_from_forgery unless: -> { request.format.json? }
+  before_filter :restrict_access, if: -> { request.format.json? }
   # GET /products
   # GET /products.json
   def index
@@ -70,5 +71,11 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:name, :description, :price)
+    end
+
+    def restrict_access
+      authenticate_or_request_with_http_token do |token, options|
+        User.exists?(token: token)
+      end
     end
 end
